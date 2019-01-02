@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Hello React!</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+        .wrapper{
+            margin: 50px 100px 300px 100px;
+            padding: 10px;
+            border: 5px ridge;
+            height: 700px;
+        }
+        .head{
+            padding: 30px;
+            float: left;
+            font-size: 40px;
+            width:950px;
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: white;
+        }
+        .internal{
+            display: inline-block;
+            padding: 10px;
+
+        }
+        .bottom{
+            text-align:right;
+            border-bottom: 3px solid;
+            color: white;
+            font-size: 20px;
+
+        }
+        body{
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            height: 100%;
+            background-size: cover;
+            background-position:center;
+
+        }
+
+        #left{
+            float: left;
+            width: 300px;
+            height: 550px;
+            border: 1px solid;
+            font-size:25px;
+            font-family: ;
+            background-image: url('hello.jpg');
+            background-repeat: no-repeat; 
+            background-size: 280px 280px;
+            background-position: center;
+            margin:5px;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body >
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let content = {
+            'font-size' : '20px',
+             color:'white'
+
+        };
+        class App extends React.Component { 
+            headerName(name){
+                return (
+                    <div className="head">
+                      
+                      {name} 
+                      
+                    </div>
+                );
+            }
+
+            profile(name, qualification){
+                return(
+                    <div>
+                       <h2> {name} </h2>
+                        {qualification}
+                    </div>
+                )
+            }
+            title(title){
+                return(
+                    <div>
+                        <h2>{title}</h2>  
+                    </div>              )
+            }
+
+            
+
+            
+            render() { 
+                return (
+                    <div className="wrapper">
+                        <div >
+                            {this.headerName("Your Story")}
+                        </div>
+                        <div className="bottom">
+                            <div className="internal"> Home </div>
+                            <div className="internal"> Articles </div>
+                            <div className="internal"> Musings </div>
+                            <div className="internal"> Snippets </div>
+                            <div className="internal"> Quotes </div>
+                            
+                        </div>
+                        <div id="left">
+                            {this.profile("archi ", "btech")}
+                        </div>
+                        <div style={content}>
+                            {this.title("Hello")}
+                        </div>
+                            <div style={content}>
+                                Lorem Ipsum is simply dummy text of the printing and
+                                 typesetting industry. Lorem Ipsum has been the industry's standard
+                                  dummy text ever since the 1500s, when an unknown printer took a g
+                                  alley of type and scrambled it to make a type specimen book. It 
+                                  has survived not only five centuries, but also the leap into
+                                   electronic typesetting, remaining essentially unchanged. 
+                                   It was popularised in the 1960s with the release of Letraset 
+                                   sheets containing Lorem Ipsum passages, and more recently with
+                                    desktop publishing software like Aldus PageMaker including versions
+                                     of Lorem Ipsum
+                            </div>
+                        
+                    </div>
+                    
+                ); 
+            } 
+         
+        }
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+</body>
+
+</html>
